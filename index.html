@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="TontonPhone offers fast, reliable smartphone sales and repair services in Blida. Quality products, expert repairs, 30-day guarantee." />
+    <meta name="keywords" content="smartphones, phone repair, Blida, Algeria, iPhone, Samsung, Xiaomi, phone accessories" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tontonphone.com/" />
+    <meta property="og:title" content="TontonPhone - Fast, Reliable Phone Sales & Repair" />
+    <meta property="og:description" content="TontonPhone offers fast, reliable smartphone sales and repair services in Blida. Quality products, expert repairs, 30-day guarantee." />
+    <meta property="og:image" content="https://tontonphone.com/images/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://tontonphone.com/" />
+    <meta property="twitter:title" content="TontonPhone - Fast, Reliable Phone Sales & Repair" />
+    <meta property="twitter:description" content="TontonPhone offers fast, reliable smartphone sales and repair services in Blida. Quality products, expert repairs, 30-day guarantee." />
+    <meta property="twitter:image" content="https://tontonphone.com/images/og-image.jpg" />
+    
+    <title>TontonPhone - Fast, Reliable Phone Sales & Repair in Blida</title>
+    <link rel="icon" type="image/svg+xml" href="/TonTon-WEBSITE/images/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: { primary: "#FF0000", secondary: "#FFFFFF" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Open Sans', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      }
+      .custom-checkbox {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      }
+      .custom-checkbox input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      }
+      .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      }
+      .dark .checkmark {
+        background-color: #1f2937;
+        border-color: #4b5563;
+      }
+      .custom-checkbox input:checked ~ .checkmark {
+      background-color: #FF0000;
+      border-color: #FF0000;
+      }
+      .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      }
+      .custom-checkbox input:checked ~ .checkmark:after {
+      display: block;
+      }
+      .custom-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+      }
+      .custom-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      }
+      .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #e5e7eb;
+      transition: .4s;
+      border-radius: 34px;
+      }
+      .dark .slider {
+        background-color: #4b5563;
+      }
+      .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+      }
+      .dark .slider:before {
+        background-color: #d1d5db;
+      }
+      input:checked + .slider {
+      background-color: #FF0000;
+      }
+      input:checked + .slider:before {
+      transform: translateX(26px);
+      }
+      .custom-radio {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      }
+      .custom-radio input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      }
+      .radio-mark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border: 2px solid #d1d5db;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+      }
+      .dark .radio-mark {
+        background-color: #1f2937;
+        border-color: #4b5563;
+      }
+      .custom-radio input:checked ~ .radio-mark {
+      border-color: #FF0000;
+      }
+      .radio-mark:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 4px;
+      top: 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #FF0000;
+      }
+      .custom-radio input:checked ~ .radio-mark:after {
+      display: block;
+      }
+      .instagram-grid img:hover {
+      transform: scale(1.02);
+      transition: transform 0.3s ease;
+      }
+      
+      /* Modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        overflow: auto;
+        transition: all 0.3s ease;
+      }
+      .modal.show {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        max-width: 500px;
+        width: 90%;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+      .dark .modal-content {
+        background-color: #1f2937;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+      .modal.show .modal-content {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+        z-index: 10;
+      }
+      /* Form validation styles */
+      .form-input.error {
+        border-color: #FF0000;
+      }
+      .error-message {
+        color: #FF0000;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+      }
+      
+      /* Filter styles */
+      .filter-option input:checked + span {
+        background-color: #FF0000;
+        color: white;
+        border-color: #FF0000;
+      }
+      
+      /* Price range slider */
+      .price-slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 6px;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
+      }
+      
+      .dark .price-slider {
+        background: #4b5563;
+      }
+      
+      .price-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #FF0000;
+        cursor: pointer;
+      }
+      
+      .price-slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #FF0000;
+        cursor: pointer;
+      }
+      
+      /* User account sidebar */
+      .account-sidebar .active {
+        background-color: #FF0000;
+        color: white;
+      }
+      
+      .account-sidebar .active i {
+        color: white;
+      }
+      
+      /* Dropdown menu styles */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        z-index: 1;
+        padding: 8px 0;
+        margin-top: 8px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s, visibility 0.5s;
+      }
+      
+      .dark .dropdown-content {
+        background-color: #1f2937;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+      }
+      
+      .dropdown:hover .dropdown-content {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      /* Add delay before hiding dropdown when mouse leaves */
+      .dropdown-content {
+        pointer-events: none;
+      }
+      
+      .dropdown:hover .dropdown-content {
+        pointer-events: auto;
+      }
+      
+      /* Improved dropdown behavior with delay */
+      .dropdown {
+        position: relative;
+      }
+      
+      .dropdown-content {
+        transition-delay: 0s;
+      }
+      
+      .dropdown:hover .dropdown-content {
+        transition-delay: 0.1s;
+      }
+      
+      /* Keep dropdown visible when hovering over the dropdown content */
+      .dropdown-content:hover {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .dropdown-item {
+        display: block;
+        padding: 8px 16px;
+        text-decoration: none;
+        color: #4b5563;
+        transition: all 0.2s ease;
+      }
+      
+      .dark .dropdown-item {
+        color: #d1d5db;
+      }
+      
+      .dropdown-item:hover {
+        background-color: #f3f4f6;
+        color: #FF0000;
+      }
+      
+      .dark .dropdown-item:hover {
+        background-color: #374151;
+        color: #FF0000;
+      }
+      
+      .dropdown-item.active {
+        color: #FF0000;
+        font-weight: 500;
+      }
+      
+      /* Logo styles for dark mode */
+      .logo-container img {
+        filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.5));
+      }
+      
+      .dark .logo-container img {
+        filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.5));
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50 transition-colors duration-200">
+      <div
+        class="container mx-auto px-4 py-3 flex items-center justify-between"
+      >
+      <div class="flex items-center logo-container">
+        <a href="index.html">
+          <img src="/TonTon-WEBSITE/images/tontonphone-logo.svg" alt="TonTonPHONE" class="h-12" />
+        </a>
+      </div>
+        <div class="lg:flex lg:items-center lg:space-x-4 hidden">
+          <a
+            href="index.html"
+            class="font-medium text-primary hover:text-primary-dark transition-colors"
+            >Home</a
+          >
+          <div class="relative group">
+            <a
+              href="#"
+              class="font-medium text-gray-800 dark:text-gray-200 hover:text-primary transition-colors flex items-center space-x-1 cursor-pointer"
+            >
+              <span>Products</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </a>
+            <div
+              class="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg rounded-md py-2 z-20 hidden group-hover:block"
+            >
+              <a href="phones.html" class="dropdown-item">Phones</a>
+              <a href="tablets.html" class="dropdown-item">Tablets</a>
+              <a href="laptops.html" class="dropdown-item">Laptops</a>
+              <a href="consoles.html" class="dropdown-item">Consoles</a>
+              <a href="accessories.html" class="dropdown-item">Accessories</a>
+            </div>
+          </div>
+          <a
+            href="#about"
+            class="font-medium text-gray-800 dark:text-gray-200 hover:text-primary transition-colors"
+            >About Us</a
+          >
+          <a
+            href="#contact"
+            class="font-medium text-gray-800 dark:text-gray-200 hover:text-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+        <div class="flex items-center space-x-4">
+          <!-- Login/Register Buttons -->
+          <button 
+            id="loginBtn" 
+            class="text-gray-800 dark:text-gray-200 hover:text-primary font-medium transition-colors"
+          >
+            Login
+          </button>
+          <button 
+            id="registerBtn" 
+            class="bg-primary text-white font-medium py-2 px-4 rounded-button hover:shadow-md transition-all"
+          >
+            Register
+          </button>
+          
+          <!-- Cart Button -->
+          <a href="cart.html" class="relative" aria-label="Shopping cart">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+              <i class="ri-shopping-cart-line text-xl" aria-hidden="true"></i>
+            </div>
+            <span
+              class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-primary text-white text-xs flex items-center justify-center font-medium"
+              id="cart-count"
+              aria-hidden="false"
+              >0</span
+            >
+          </a>
+          
+          <!-- Dark Mode Toggle -->
+          <button
+            id="darkModeToggle"
+            class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
+            aria-label="Toggle dark mode"
+          >
+            <i class="ri-sun-line text-xl dark:hidden" aria-hidden="true"></i>
+            <i class="ri-moon-line text-xl hidden dark:block" aria-hidden="true"></i>
+          </button>
+          
+          <!-- Mobile Menu Toggle -->
+          <button 
+            id="mobileMenuBtn"
+            class="lg:hidden w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <i class="ri-menu-line text-xl" aria-hidden="true"></i>
+          </button>
+          
+          <div class="md:hidden flex items-center">
+            <button class="text-gray-800 dark:text-gray-200 hover:text-primary focus:outline-none">
+              <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-menu-line ri-lg"></i>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content p-6 w-full max-w-md">
+        <div class="close-modal" data-modal="loginModal">
+          <i class="ri-close-line ri-lg text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"></i>
+        </div>
+        <div class="text-center mb-6">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Login to Your Account</h2>
+          <p class="text-gray-600 dark:text-gray-400 mt-1">Welcome back! Please enter your details.</p>
+        </div>
+        <form id="loginForm" class="space-y-4">
+          <div>
+            <label for="loginEmail" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+            <input 
+              type="email" 
+              id="loginEmail" 
+              class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" 
+              placeholder="Enter your email"
+              required
+            >
+            <div class="error-message" id="loginEmailError"></div>
+          </div>
+          <div>
+            <label for="loginPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+            <input 
+              type="password" 
+              id="loginPassword" 
+              class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" 
+              placeholder="Enter your password"
+              required
+            >
+            <div class="error-message" id="loginPasswordError"></div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <label class="custom-checkbox">
+                <input type="checkbox" id="rememberMe">
+                <span class="checkmark"></span>
+              </label>
+              <label for="rememberMe" class="text-sm text-gray-600 dark:text-gray-400">Remember me</label>
+            </div>
+            <a href="#" class="text-sm text-primary hover:underline">Forgot password?</a>
+          </div>
+          <button 
+            type="submit" 
+            class="w-full bg-primary text-white font-semibold py-2 px-4 rounded-button hover:shadow-md transition-all"
+          >
+            Sign in
+          </button>
+          <div class="relative flex items-center justify-center mt-6">
+            <div class="border-t border-gray-300 dark:border-gray-600 absolute w-full"></div>
+            <div class="bg-white dark:bg-gray-800 px-4 text-sm text-gray-500 dark:text-gray-400 relative">or continue with</div>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <button 
+              type="button" 
+              class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
+            >
+              <i class="ri-google-fill ri-lg text-gray-700 dark:text-gray-300"></i>
+            </button>
+            <button 
+              type="button" 
+              class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
+            >
+              <i class="ri-facebook-fill ri-lg text-gray-700 dark:text-gray-300"></i>
+            </button>
+            <button 
+              type="button" 
+              class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
+            >
+              <i class="ri-apple-fill ri-lg text-gray-700 dark:text-gray-300"></i>
+            </button>
+          </div>
+          <p class="text-center text-sm text-gray-600 dark:text-gray-400">
+            Don't have an account? 
+            <a href="#" class="text-primary hover:underline" id="switchToRegister">Register</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+      <div class="modal-content p-6 w-full max-w-md">
+        <div class="close-modal" data-modal="registerModal">
+          <i class="ri-close-line ri-lg text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"></i>
+        </div>
+        <div class="text-center mb-6">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Create an Account</h2>
+          <p class="text-gray-600 dark:text-gray-400 mt-1">Join TonTonPhone for exclusive offers and faster checkout.</p>
+        </div>
+        <form id="registerForm" class="space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label for="firstName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">First Name</label>
+              <input 
+                type="text" 
+                id="firstName" 
+                class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" 
+                placeholder="First name"
+                required
+              >
+              <div class="error-message" id="firstNameError"></div>
+            </div>
+            <div>
+              <label for="lastName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Last Name</label>
+              <input 
+                type="text" 
+                id="lastName" 
+                class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" 
+                placeholder="Last name"
+                required
+              >
+              <div class="error-message" id="lastNameError"></div>
+            </div>
+          </div>
+          <div>
+            <label for="username" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Username</label>
+            <input 
+              type="text" 
+              id="username" 
+              class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" 
+              placeholder="Choose a username"
+              required
+            >
+            <div class="error-message" id="usernameError"></div>
+          </div>
+          <div>
+            <label for="registerEmail" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+            <input 
+              type="email" 
+              id="registerEmail" 
+              class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" 
+              placeholder="Enter your email"
+              required
+            >
+            <div class="error-message" id="registerEmailError"></div>
+          </div>
+          <div>
+            <label for="phoneNumber" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone Number</label>
+            <input 
+              type="tel" 
+              id="phoneNumber" 
+              class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" 
+              placeholder="Enter your phone number"
+              required
+            >
+            <div class="error-message" id="phoneNumberError"></div>
+          </div>
+          <div>
+            <label for="registerPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+            <input 
+              type="password" 
+              id="registerPassword" 
+              class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" 
+              placeholder="Create a password"
+              required
+            >
+            <div class="error-message" id="registerPasswordError"></div>
+          </div>
+          <div>
+            <label for="confirmPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Confirm Password</label>
+            <input 
+              type="password" 
+              id="confirmPassword" 
+              class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" 
+              placeholder="Confirm your password"
+              required
+            >
+            <div class="error-message" id="confirmPasswordError"></div>
+          </div>
+          <div class="flex items-start">
+            <label class="custom-checkbox mt-1">
+              <input type="checkbox" id="termsAgree" required>
+              <span class="checkmark"></span>
+            </label>
+            <label for="termsAgree" class="text-sm text-gray-600 dark:text-gray-400 ml-2">
+              I agree to the <a href="#" class="text-primary hover:underline">Terms of Service</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a>
+            </label>
+          </div>
+          <button 
+            type="submit" 
+            class="w-full bg-primary text-white font-semibold py-2 px-4 rounded-button hover:shadow-md transition-all"
+          >
+            Create Account
+          </button>
+          <div class="relative flex items-center justify-center mt-6">
+            <div class="border-t border-gray-300 dark:border-gray-600 absolute w-full"></div>
+            <div class="bg-white dark:bg-gray-800 px-4 text-sm text-gray-500 dark:text-gray-400 relative">or register with</div>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <button 
+              type="button" 
+              class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
+            >
+              <i class="ri-google-fill ri-lg text-gray-700 dark:text-gray-300"></i>
+            </button>
+            <button 
+              type="button" 
+              class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
+            >
+              <i class="ri-facebook-fill ri-lg text-gray-700 dark:text-gray-300"></i>
+            </button>
+            <button 
+              type="button" 
+              class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
+            >
+              <i class="ri-apple-fill ri-lg text-gray-700 dark:text-gray-300"></i>
+            </button>
+          </div>
+          <p class="text-center text-sm text-gray-600 dark:text-gray-400">
+            Already have an account? 
+            <a href="#" class="text-primary hover:underline" id="switchToLogin">Login</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="relative overflow-hidden"
+      style="background-image: url('https://public.readdy.ai/ai/img_res/9a256b96a6514150235a866c89515a11.jpg'); background-size: cover; background-position: center;"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-white dark:from-gray-900 via-white/90 dark:via-gray-900/90 to-transparent"
+      ></div>
+      <div class="container mx-auto px-4 py-24 md:py-32 relative">
+        <div class="max-w-xl">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900 dark:text-white"
+          >
+            TonTonPhone – La qualité que vous méritez, le choix que vous
+            cherchez.
+          </h1>
+          <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8">
+            TonTonPhone, c'est la vente & réparation de smartphones avec
+            livraison rapide dans les 58 wilayas. Qualité garantie depuis 2015.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="phones.html"
+              class="bg-primary text-white font-semibold py-3 px-8 !rounded-button shadow-lg hover:shadow-xl transition-all whitespace-nowrap text-center"
+              >Browse Phones</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="bg-white dark:bg-gray-800 py-16 transition-colors duration-200">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gray-900 dark:text-white">About tontonPhone</h2>
+          <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Your trusted partner for all smartphone needs since 2015. We pride
+            ourselves on providing fast, reliable service with a 30-day
+            warranty.
+          </p>
+          <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mt-2">
+            Located at: Rue Mustapha Ben Boulaid (À côté de Société Générale),
+            Blida 09000
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <div
+              class="w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <div
+                class="w-8 h-8 flex items-center justify-center text-primary"
+              >
+                <i class="ri-time-line ri-2x"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Fast Service</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              🚚 Livraison Disponible 58 wilaya. We value your time and ensure
+              quick service.
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <div
+              class="w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <div
+                class="w-8 h-8 flex items-center justify-center text-primary"
+              >
+                <i class="ri-shield-check-line ri-2x"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Quality Guarantee</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              All products come with a 30-day warranty. We offer only genuine
+              products with quality assurance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Section -->
+    <section id="services" class="bg-gray-50 dark:bg-gray-900 py-16 transition-colors duration-200">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gray-900 dark:text-white">Our Services</h2>
+          <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+          
+          <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            We offer comprehensive smartphone solutions to keep you connected.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all"
+          >
+            <div class="h-48 bg-primary flex items-center justify-center">
+              <div
+                class="w-20 h-20 flex items-center justify-center text-white"
+              >
+                <i class="ri-smartphone-line ri-4x"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Phone Sales</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Browse our selection of new and pre-owned smartphones from all
+                major brands at competitive prices.
+              </p>
+              <a
+                href="phones.html"
+                class="text-primary font-medium hover:underline flex items-center"
+              >
+                View Phones
+                <div class="w-5 h-5 flex items-center justify-center ml-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all"
+          >
+            <div class="h-48 bg-primary flex items-center justify-center">
+              <div
+                class="w-20 h-20 flex items-center justify-center text-white"
+              >
+                <i class="ri-tablet-line ri-4x"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Tablets</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Wide selection of tablets from leading brands with the latest
+                features at great prices.
+              </p>
+              <a
+                href="tablets.html"
+                class="text-primary font-medium hover:underline flex items-center"
+              >
+                View Tablets
+                <div class="w-5 h-5 flex items-center justify-center ml-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all"
+          >
+            <div class="h-48 bg-primary flex items-center justify-center">
+              <div
+                class="w-20 h-20 flex items-center justify-center text-white"
+              >
+                <i class="ri-macbook-line ri-4x"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Laptops</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                High-performance laptops for work, gaming, and everyday use from
+                top manufacturers.
+              </p>
+              <a
+                href="laptops.html"
+                class="text-primary font-medium hover:underline flex items-center"
+              >
+                View Laptops
+                <div class="w-5 h-5 flex items-center justify-center ml-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all"
+          >
+            <div class="h-48 bg-primary flex items-center justify-center">
+              <div
+                class="w-20 h-20 flex items-center justify-center text-white"
+              >
+                <i class="ri-gamepad-line ri-4x"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+                Consoles et Accessoires
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Gaming consoles, controllers, headsets, and accessories for the
+                ultimate gaming experience.
+              </p>
+              <a
+                href="consoles.html"
+                class="text-primary font-medium hover:underline flex items-center"
+              >
+                Shop Now
+                <div class="w-5 h-5 flex items-center justify-center ml-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Featured Phones Section -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Phones</h2>
+          <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Discover our selection of premium smartphones with the latest technology and features.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Product Card 1 -->
+          <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg">
+            <div class="h-52 bg-gray-100 dark:bg-gray-800 flex items-center justify-center p-4">
+              <img src="/TonTon-WEBSITE/images/products/iphone15-pro-max.jpg" alt="iPhone 15 Pro Max" class="h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=iPhone%2015%20Pro%20Max';">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">iPhone 15 Pro Max</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                A17 Pro chip, 48MP camera system, titanium design
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-primary">389,000 DZD</span>
+                <button class="add-to-cart bg-primary text-white rounded-button px-4 py-2 hover:shadow-md transition-all" 
+                       data-id="iphone15promax" 
+                       data-name="iPhone 15 Pro Max" 
+                       data-price="389000"
+                       data-image="/TonTon-WEBSITE/images/products/iphone15-pro-max.jpg">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 2 -->
+          <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg">
+            <div class="h-52 bg-gray-100 dark:bg-gray-800 flex items-center justify-center p-4">
+              <img src="/TonTon-WEBSITE/images/products/samsung-galaxy-s24-ultra.jpg" alt="Samsung Galaxy S24 Ultra" class="h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Samsung%20Galaxy%20S24%20Ultra';">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Samsung Galaxy S24 Ultra</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                Snapdragon 8 Gen 3, 200MP camera, 6.8" Dynamic AMOLED
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-primary">349,000 DZD</span>
+                <button class="add-to-cart bg-primary text-white rounded-button px-4 py-2 hover:shadow-md transition-all"
+                       data-id="samsungs24ultra" 
+                       data-name="Samsung Galaxy S24 Ultra" 
+                       data-price="349000"
+                       data-image="/TonTon-WEBSITE/images/products/samsung-galaxy-s24-ultra.jpg">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 3 -->
+          <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg">
+            <div class="h-52 bg-gray-100 dark:bg-gray-800 flex items-center justify-center p-4">
+              <img src="/TonTon-WEBSITE/images/products/google-pixel-8-pro.jpg" alt="Google Pixel 8 Pro" class="h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Google%20Pixel%208%20Pro';">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Google Pixel 8 Pro</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                Google Tensor G3, 50MP camera, 6.7" Super Actua display
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-primary">219,000 DZD</span>
+                <button class="add-to-cart bg-primary text-white rounded-button px-4 py-2 hover:shadow-md transition-all"
+                       data-id="pixel8pro" 
+                       data-name="Google Pixel 8 Pro" 
+                       data-price="219000"
+                       data-image="/TonTon-WEBSITE/images/products/google-pixel-8-pro.jpg">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 4 -->
+          <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg">
+            <div class="h-52 bg-gray-100 dark:bg-gray-800 flex items-center justify-center p-4">
+              <img src="/TonTon-WEBSITE/images/products/iphone14-refurbished.jpg" alt="iPhone 14 (Refurbished)" class="h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=iPhone%2014%20Refurbished';">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">iPhone 14 (Refurbished)</h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                A15 Bionic chip, 12MP camera, 6.1" Super Retina XDR
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-primary">179,000 DZD</span>
+                <button class="add-to-cart bg-primary text-white rounded-button px-4 py-2 hover:shadow-md transition-all"
+                       data-id="iphone14refurb" 
+                       data-name="iPhone 14 (Refurbished)" 
+                       data-price="179000"
+                       data-image="/TonTon-WEBSITE/images/products/iphone14-refurbished.jpg">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="phones.html" class="inline-block bg-white dark:bg-gray-700 text-primary font-medium py-3 px-6 rounded-button border border-primary hover:bg-primary hover:text-white transition-colors">
+            View All Phones
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Us Section -->
+    <section id="contact" class="bg-red-600 py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-white mb-4">Contact Us</h2>
+        <div class="w-24 h-1 bg-white mx-auto mb-12"></div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-1 gap-8">
+          <!-- Contact Information Card -->
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+            <div class="p-8">
+              <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+              
+              <div class="space-y-6">
+                <!-- Address -->
+                <div class="flex items-start">
+                  <div class="w-10 h-10 rounded-full bg-red-100 flex-shrink-0 flex items-center justify-center mr-4">
+                    <i class="ri-map-pin-line text-red-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Address</h4>
+                    <p class="text-gray-600 dark:text-gray-400">Rue Mustapha Ben Boulaid (À côté de Société Générale), Blida 09000</p>
+                  </div>
+                </div>
+                
+                <!-- Phone -->
+                <div class="flex items-start">
+                  <div class="w-10 h-10 rounded-full bg-red-100 flex-shrink-0 flex items-center justify-center mr-4">
+                    <i class="ri-phone-line text-red-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Phone</h4>
+                    <p class="text-gray-600 dark:text-gray-400">0559861566 / 0795728829</p>
+                  </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="flex items-start">
+                  <div class="w-10 h-10 rounded-full bg-red-100 flex-shrink-0 flex items-center justify-center mr-4">
+                    <i class="ri-mail-line text-red-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Email</h4>
+                    <p class="text-gray-600 dark:text-gray-400">info@tontonphone.com</p>
+                  </div>
+                </div>
+                
+                <!-- Business Hours -->
+                <div class="flex items-start">
+                  <div class="w-10 h-10 rounded-full bg-red-100 flex-shrink-0 flex items-center justify-center mr-4">
+                    <i class="ri-time-line text-red-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium">Business Hours</h4>
+                    <p class="text-gray-600 dark:text-gray-400">
+                      Monday - Friday: 9:00 AM - 7:00 PM<br>
+                      Saturday: 10:00 AM - 5:00 PM<br>
+                      Sunday: Closed
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Social Media Links -->
+              <div class="flex space-x-4 mt-6">
+                <a href="#" class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                  <i class="ri-facebook-fill"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                  <i class="ri-instagram-fill"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                  <i class="ri-twitter-x-fill"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                  <i class="ri-whatsapp-fill"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Map -->
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden mt-8">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.7287559312307!2d2.831245975520575!3d36.87294447223416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128f0c5bf7c4c7ef%3A0x674e4ef4c66d01fa!2sSoci%C3%A9t%C3%A9%20G%C3%A9n%C3%A9rale%20Alg%C3%A9rie!5e0!3m2!1sen!2sdz!4v1712354183981!5m2!1sen!2sdz" 
+              width="100%" 
+              height="300" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <img src="/TonTon-WEBSITE/images/tontonphone-logo.svg" alt="TonTonPHONE" class="h-8 mb-4" />
+            <p class="text-gray-400 mb-4">
+              Your trusted partner for all smartphone needs since 2015. Fast,
+              reliable service with a 30-day repair guarantee.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-6 h-6 flex items-center justify-center">
+                  <i class="ri-facebook-fill"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-6 h-6 flex items-center justify-center">
+                  <i class="ri-instagram-fill"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-6 h-6 flex items-center justify-center">
+                  <i class="ri-twitter-x-fill"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-6 h-6 flex items-center justify-center">
+                  <i class="ri-whatsapp-fill"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="phones.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Phones</a
+                >
+              </li>
+              <li>
+                <a
+                  href="account.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >My Account</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Products</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="phones.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Smartphones</a
+                >
+              </li>
+              <li>
+                <a
+                  href="tablets.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Tablets</a
+                >
+              </li>
+              <li>
+                <a
+                  href="laptops.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Laptops</a
+                >
+              </li>
+              <li>
+                <a
+                  href="consoles.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Consoles</a
+                >
+              </li>
+              <li>
+                <a
+                  href="consoles.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Accessories</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Contact</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                  <i class="ri-map-pin-line"></i>
+                </div>
+                <span class="text-gray-400"
+                  >Rue Mustapha Ben Boulaid (À côté de Société Générale), Blida
+                  09000</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                  <i class="ri-phone-line"></i>
+                </div>
+                <span class="text-gray-400">0559861566 / 0795728829</span>
+              </li>
+              <li class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                  <i class="ri-mail-line"></i>
+                </div>
+                <span class="text-gray-400">info@tontonphone.com</span>
+              </li>
+              <li class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                  <i class="ri-time-line"></i>
+                </div>
+                <span class="text-gray-400"
+                  >Mon-Fri: 9AM-7PM<br />Sat: 10AM-5PM<br />Sun: Closed</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 tontonPhone. All rights reserved.
+          </p>
+          <div class="flex items-center space-x-4">
+            <div class="w-8 h-5 flex items-center justify-center text-gray-400">
+              <i class="ri-visa-fill ri-lg"></i>
+            </div>
+            <div class="w-8 h-5 flex items-center justify-center text-gray-400">
+              <i class="ri-mastercard-fill ri-lg"></i>
+            </div>
+            <div class="w-8 h-5 flex items-center justify-center text-gray-400">
+              <i class="ri-paypal-fill ri-lg"></i>
+            </div>
+            <div class="w-8 h-5 flex items-center justify-center text-gray-400">
+              <i class="ri-apple-fill ri-lg"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize dark mode
+        initializeDarkMode();
+        
+        // Initialize mobile menu
+        initializeMobileMenu();
+      });
+
+      // Dark mode functionality
+      function initializeDarkMode() {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('darkMode') === 'true') {
+          document.documentElement.classList.add('dark');
+        }
+        
+        // Toggle dark mode
+        darkModeToggle.addEventListener('click', function() {
+          document.documentElement.classList.toggle('dark');
+          localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        });
+      }
+
+      // Mobile menu functionality
+      function initializeMobileMenu() {
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuCloseBtn = document.getElementById('mobileMenuCloseBtn');
+        const categoriesToggle = document.getElementById('categoriesToggle');
+        const categoriesSubmenu = document.getElementById('categoriesSubmenu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.style.display = 'flex';
+            this.setAttribute('aria-expanded', 'true');
+          });
+        }
+        
+        if (mobileMenuCloseBtn && mobileMenu) {
+          mobileMenuCloseBtn.addEventListener('click', function() {
+            mobileMenu.style.display = 'none';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          });
+        }
+
+        // Toggle categories submenu
+        if (categoriesToggle && categoriesSubmenu) {
+          categoriesToggle.addEventListener('click', function() {
+            categoriesSubmenu.classList.toggle('hidden');
+            const arrow = this.querySelector('i');
+            if (arrow) {
+              if (categoriesSubmenu.classList.contains('hidden')) {
+                arrow.classList.remove('ri-arrow-up-s-line');
+                arrow.classList.add('ri-arrow-down-s-line');
+              } else {
+                arrow.classList.remove('ri-arrow-down-s-line');
+                arrow.classList.add('ri-arrow-up-s-line');
+              }
+            }
+          });
+        }
+      }
+    </script>
+
+    <!-- Mobile menu content -->
+    <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+      <div class="bg-white dark:bg-gray-900 h-full w-4/5 max-w-sm overflow-y-auto transform transition-transform duration-300 translate-x-0">
+        <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
+          <div class="text-xl font-bold text-gray-800 dark:text-white">Menu</div>
+          <button id="closeMobileMenu" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+            <i class="ri-close-line text-2xl"></i>
+          </button>
+        </div>
+        <nav class="p-4">
+          <ul class="space-y-3">
+            <li>
+              <a href="index.html" class="mobile-menu-item">Home</a>
+            </li>
+            <li class="relative mobile-submenu-container">
+              <div class="flex items-center justify-between mobile-menu-item mobile-menu-trigger">
+                <span>Products</span>
+                <i class="ri-arrow-right-s-line transition-transform mobile-submenu-arrow"></i>
+              </div>
+              <ul class="mobile-submenu pl-4 mt-2 space-y-2 hidden">
+                <li><a href="phones.html" class="mobile-submenu-item">Phones</a></li>
+                <li><a href="tablets.html" class="mobile-submenu-item">Tablets</a></li>
+                <li><a href="laptops.html" class="mobile-submenu-item">Laptops</a></li>
+                <li><a href="consoles.html" class="mobile-submenu-item">Consoles</a></li>
+                <li><a href="accessories.html" class="mobile-submenu-item">Accessories</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#about" class="mobile-menu-item">About Us</a>
+            </li>
+            <li>
+              <a href="#contact" class="mobile-menu-item">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </body>
+</html>

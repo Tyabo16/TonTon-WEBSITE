@@ -1,0 +1,227 @@
+[
+  {
+    "id": "p1",
+    "category": "phones",
+    "name": "iPhone 15 Pro",
+    "brand": "apple",
+    "price": 180000,
+    "specs": "6.1\" OLED, A17 Pro, 8GB RAM, 256GB, iOS 17",
+    "image": "images/products/iphone15pro.jpg"
+  },
+  {
+    "id": "p2",
+    "category": "phones",
+    "name": "Samsung Galaxy S24 Ultra",
+    "brand": "samsung",
+    "price": 175000,
+    "specs": "6.8\" AMOLED, Snapdragon 8 Gen 3, 12GB RAM, 512GB, Android 14",
+    "image": "images/products/s24ultra.jpg"
+  },
+  {
+    "id": "p3",
+    "category": "phones",
+    "name": "Google Pixel 8 Pro",
+    "brand": "google",
+    "price": 140000,
+    "specs": "6.7\" OLED, Tensor G3, 12GB RAM, 256GB, Android 14",
+    "image": "images/products/pixel8pro.jpg"
+  },
+  {
+    "id": "p4",
+    "category": "phones",
+    "name": "Xiaomi 14 Ultra",
+    "brand": "xiaomi",
+    "price": 130000,
+    "specs": "6.73\" AMOLED, Snapdragon 8 Gen 3, 16GB RAM, 512GB, MIUI 15",
+    "image": "images/products/xiaomi14ultra.jpg"
+  },
+  {
+    "id": "p5",
+    "category": "phones",
+    "name": "OnePlus 12",
+    "brand": "oneplus",
+    "price": 120000,
+    "specs": "6.7\" AMOLED, Snapdragon 8 Gen 3, 16GB RAM, 256GB, OxygenOS 14",
+    "image": "images/products/oneplus12.jpg"
+  },
+  {
+    "id": "t1",
+    "category": "tablets",
+    "name": "iPad Pro 12.9\"",
+    "brand": "apple",
+    "price": 180000,
+    "specs": "12.9\" Liquid Retina XDR, M2 chip, 8GB RAM, 256GB, iPadOS 17, Wi-Fi + Cellular",
+    "image": "images/products/ipadpro.jpg"
+  },
+  {
+    "id": "t2",
+    "category": "tablets",
+    "name": "Samsung Galaxy Tab S9 Ultra",
+    "brand": "samsung",
+    "price": 160000,
+    "specs": "14.6\" AMOLED, Snapdragon 8 Gen 2, 12GB RAM, 256GB, Android 13, Wi-Fi Only",
+    "image": "images/products/tabs9ultra.jpg"
+  },
+  {
+    "id": "t3",
+    "category": "tablets",
+    "name": "Microsoft Surface Pro 9",
+    "brand": "microsoft",
+    "price": 170000,
+    "specs": "13\" PixelSense, Intel Core i7, 16GB RAM, 512GB SSD, Windows 11, Wi-Fi Only",
+    "image": "images/products/surfacepro9.jpg"
+  },
+  {
+    "id": "t4",
+    "category": "tablets",
+    "name": "Amazon Fire HD 10",
+    "brand": "amazon",
+    "price": 35000,
+    "specs": "10.1\" Full HD, Octa-core, 3GB RAM, 64GB, Fire OS, Wi-Fi Only",
+    "image": "images/products/firehd10.jpg"
+  },
+  {
+    "id": "t5",
+    "category": "tablets",
+    "name": "Lenovo Tab P12 Pro",
+    "brand": "lenovo",
+    "price": 85000,
+    "specs": "12.6\" AMOLED, Snapdragon 870, 8GB RAM, 256GB, Android 11, Wi-Fi + Cellular",
+    "image": "images/products/tabp12pro.jpg"
+  },
+  {
+    "id": "l1",
+    "category": "laptops",
+    "name": "MacBook Pro 16\"",
+    "brand": "apple",
+    "price": 220000,
+    "specs": "16\" Liquid Retina XDR, M3 Pro, 32GB RAM, 1TB SSD, macOS Sonoma",
+    "image": "images/products/macbookpro.jpg"
+  },
+  {
+    "id": "l2",
+    "category": "laptops",
+    "name": "Dell XPS 15",
+    "brand": "dell",
+    "price": 195000,
+    "specs": "15.6\" OLED, Intel Core i9-13900H, 32GB RAM, 1TB SSD, Windows 11 Pro",
+    "image": "images/products/dellxps15.jpg"
+  },
+  {
+    "id": "l3",
+    "category": "laptops",
+    "name": "HP Spectre x360",
+    "brand": "hp",
+    "price": 180000,
+    "specs": "14\" OLED, Intel Core i7-13700H, 16GB RAM, 1TB SSD, Windows 11 Home",
+    "image": "images/products/spectrehp.jpg"
+  },
+  {
+    "id": "l4",
+    "category": "laptops",
+    "name": "Lenovo ThinkPad X1 Carbon",
+    "brand": "lenovo",
+    "price": 190000,
+    "specs": "14\" IPS, Intel Core i7-1360P, 16GB RAM, 512GB SSD, Windows 11 Pro",
+    "image": "images/products/thinkpadx1.jpg"
+  },
+  {
+    "id": "l5",
+    "category": "laptops",
+    "name": "Asus ROG Zephyrus G15",
+    "brand": "asus",
+    "price": 210000,
+    "specs": "15.6\" QHD, AMD Ryzen 9, 32GB RAM, 2TB SSD, NVIDIA RTX 4080, Windows 11 Home",
+    "image": "images/products/rogzephyrus.jpg"
+  },
+  {
+    "id": "c1",
+    "category": "consoles",
+    "name": "PlayStation 5 Pro",
+    "brand": "sony",
+    "price": 130000,
+    "specs": "AMD Ryzen Zen 2, 16GB GDDR6, 1TB SSD, 4K@120Hz, 8K support, Home Console",
+    "image": "images/products/ps5pro.jpg"
+  },
+  {
+    "id": "c2",
+    "category": "consoles",
+    "name": "Xbox Series X",
+    "brand": "microsoft",
+    "price": 110000,
+    "specs": "Custom AMD Zen 2, 16GB GDDR6, 1TB SSD, 4K@120Hz, 8K support, Home Console",
+    "image": "images/products/xboxseriesx.jpg"
+  },
+  {
+    "id": "c3",
+    "category": "consoles",
+    "name": "Nintendo Switch OLED",
+    "brand": "nintendo",
+    "price": 70000,
+    "specs": "Custom Nvidia Tegra, 4GB RAM, 64GB, 7\" OLED, Hybrid Console",
+    "image": "images/products/switcholed.jpg"
+  },
+  {
+    "id": "c4",
+    "category": "consoles",
+    "name": "Xbox Series S",
+    "brand": "microsoft",
+    "price": 65000,
+    "specs": "Custom AMD Zen 2, 10GB GDDR6, 512GB SSD, 1440p@120Hz, Home Console",
+    "image": "images/products/xboxseriess.jpg"
+  },
+  {
+    "id": "c5",
+    "category": "consoles",
+    "name": "PlayStation Portal",
+    "brand": "sony",
+    "price": 45000,
+    "specs": "8\" LCD, Remote Play for PS5, 1080p@60fps, Handheld Console",
+    "image": "images/products/psportal.jpg"
+  },
+  {
+    "id": "a1",
+    "category": "accessories",
+    "name": "AirPods Pro 2",
+    "brand": "apple",
+    "price": 45000,
+    "specs": "Active Noise Cancellation, Transparency mode, Adaptive EQ, Spatial Audio, Headphones & Earbuds, Compatible with iPhone",
+    "image": "images/products/airpodspro.jpg"
+  },
+  {
+    "id": "a2",
+    "category": "accessories",
+    "name": "Samsung Galaxy Watch 6",
+    "brand": "samsung",
+    "price": 38000,
+    "specs": "44mm, AMOLED, heart rate monitor, GPS, LTE connectivity, Smart Watches, Compatible with Samsung Galaxy",
+    "image": "images/products/galaxywatch6.jpg"
+  },
+  {
+    "id": "a3",
+    "category": "accessories",
+    "name": "Anker 737 Power Bank",
+    "brand": "anker",
+    "price": 15000,
+    "specs": "24000mAh, 140W output, digital display, USB-C, USB-A, Power Banks, Compatible with iPhone, Samsung Galaxy, MacBook",
+    "image": "images/products/anker737.jpg"
+  },
+  {
+    "id": "a4",
+    "category": "accessories",
+    "name": "JBL Charge 5",
+    "brand": "jbl",
+    "price": 22000,
+    "specs": "Bluetooth speaker, IP67 waterproof, 20 hours playtime, USB-C, Speakers, Universal",
+    "image": "images/products/jblcharge5.jpg"
+  },
+  {
+    "id": "a5",
+    "category": "accessories",
+    "name": "Belkin MagSafe 3-in-1 Wireless Charger",
+    "brand": "belkin",
+    "price": 18000,
+    "specs": "15W fast charging, charges iPhone, Apple Watch, AirPods simultaneously, Chargers & Cables, Compatible with iPhone, Apple Watch",
+    "image": "images/products/belkinmagsafe.jpg"
+  }
+] 

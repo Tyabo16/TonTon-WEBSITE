@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone 15 Pro Max - TontonPhone</title>
+    <meta name="description" content="iPhone 15 Pro Max with A17 Pro chip, 48MP camera system, and titanium design. Available at TontonPhone.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#FF0000',
+              secondary: '#6C7AE0',
+              'gray-dark': '#22272E',
+              'gray-light': '#F6F8FA',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif']
+            },
+            borderRadius: {
+              'button': '8px',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <style>
+      /* Custom CSS */
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      
+      /* Product gallery thumbnails */
+      .gallery-thumbnail {
+        opacity: 0.6;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .gallery-thumbnail:hover,
+      .gallery-thumbnail.active {
+        opacity: 1;
+        border-color: #FF0000;
+      }
+      
+      /* Color selector */
+      .color-option input:checked + .color-circle {
+        box-shadow: 0 0 0 2px white, 0 0 0 4px #FF0000;
+      }
+      
+      /* Storage option */
+      .storage-option input:checked + .storage-box {
+        border-color: #FF0000;
+        background-color: rgba(255, 0, 0, 0.05);
+      }
+      
+      /* Tabs */
+      .tab-btn.active {
+        color: #FF0000;
+        border-bottom-color: #FF0000;
+      }
+      
+      .tab-content {
+        display: none;
+      }
+      
+      .tab-content.active {
+        display: block;
+      }
+      
+      /* Review stars */
+      .stars-container {
+        display: inline-flex;
+        position: relative;
+      }
+      
+      .stars-bg {
+        color: #e0e0e0;
+      }
+      
+      .stars-fg {
+        color: #ffc107;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      
+      /* Animations */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease forwards;
+      }
+      
+      /* Modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 50;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      .modal.show {
+        display: flex;
+        opacity: 1;
+      }
+      
+      .modal-content {
+        background-color: white;
+        border-radius: 12px;
+        max-width: 500px;
+        width: 90%;
+        padding: 2rem;
+        margin: auto;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+      
+      .dark .modal-content {
+        background-color: #2D333B;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900 transition-colors">
+    <!-- Header / Navigation Section -->
+    <header class="bg-white dark:bg-gray-800 sticky top-0 shadow-sm z-40 transition-colors">
+      <div class="container mx-auto px-4 py-4">
+        <nav class="flex items-center justify-between">
+          <!-- Logo -->
+          <a href="index.html" class="flex items-center">
+            <span class="text-2xl font-bold text-primary">Tonton<span class="text-gray-800 dark:text-white">Phone</span></span>
+          </a>
+          
+          <!-- Search Bar (New Addition) -->
+          <div class="hidden md:flex relative w-1/3 mx-4">
+            <input 
+              type="text"
+              placeholder="Search products..."
+              class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-button focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-white"
+            >
+            <i class="ri-search-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+          </div>
+          
+          <!-- Desktop Navigation Links -->
+          <div class="hidden md:flex space-x-6">
+            <a
+              href="index.html"
+              class="font-medium text-gray-800 dark:text-gray-200 hover:text-primary transition-colors"
+              >Home</a
+            >
+            <a
+              href="index.html#about"
+              class="font-medium text-gray-800 dark:text-gray-200 hover:text-primary transition-colors"
+              >About</a
+            >
+            <a
+              href="#"
+              class="font-medium text-gray-800 dark:text-gray-200 hover:text-primary transition-colors group relative"
+              >Products
+              <div class="hidden group-hover:block absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 z-50">
+                <a href="phones.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Phones</a>
+                <a href="tablets.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Tablets</a>
+                <a href="laptops.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Laptops</a>
+                <a href="accessories.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Accessories</a>
+                <a href="consoles.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Consoles</a>
+              </div>
+            </a>
+            <a
+              href="index.html#instagram"
+              class="font-medium text-gray-800 dark:text-gray-200 hover:text-primary transition-colors"
+              >Gallery</a
+            >
+            <a
+              href="index.html#contact"
+              class="font-medium text-gray-800 dark:text-gray-200 hover:text-primary transition-colors"
+              >Contact</a
+            >
+          </div>
+          <div class="flex items-center space-x-4">
+            <!-- Login/Register Buttons -->
+            <div id="auth-buttons">
+              <button 
+                id="loginBtn" 
+                class="text-gray-800 dark:text-gray-200 hover:text-primary font-medium transition-colors"
+              >
+                Login
+              </button>
+              <button 
+                id="registerBtn" 
+                class="bg-primary text-white font-medium py-2 px-4 rounded-button hover:shadow-md transition-all"
+              >
+                Register
+              </button>
+            </div>
+            
+            <!-- Shopping Cart (Hidden until logged in) -->
+            <div id="cart-button" class="hidden">
+              <a href="cart.html" class="relative">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                  <i class="ri-shopping-cart-line"></i>
+                </div>
+                <span id="cart-count" class="absolute -top-1 -right-1 bg-primary text-white text-xs font-medium rounded-full h-5 w-5 flex items-center justify-center">0</span>
+              </a>
+            </div>
+            
+            <!-- Language Selector (New Addition) -->
+            <div class="relative group">
+              <button class="flex items-center space-x-1 text-gray-800 dark:text-gray-200">
+                <span>EN</span>
+                <i class="ri-arrow-down-s-line"></i>
+              </button>
+              <div class="absolute right-0 mt-2 w-24 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 z-50 hidden group-hover:block">
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">English</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Français</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">العربية</a>
+              </div>
+            </div>
+            
+            <!-- Dark Mode Toggle Button -->
+            <button 
+              id="darkModeToggle"
+              class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              aria-label="Toggle dark mode"
+            >
+              <i class="ri-moon-line dark:hidden"></i>
+              <i class="ri-sun-line hidden dark:block text-yellow-400"></i>
+            </button>
+            
+            <!-- Mobile Menu Toggle -->
+            <button 
+              id="mobileMenuBtn"
+              class="md:hidden w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+            >
+              <i class="ri-menu-line"></i>
+            </button>
+          </div>
+        </nav>
+      </div>
+      
+      <!-- Mobile Navigation (hidden on desktop) -->
+      <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 transition-colors">
+        <div class="container mx-auto px-4 py-4 space-y-4">
+          <!-- Mobile Search Bar -->
+          <div class="relative mb-4">
+            <input 
+              type="text"
+              placeholder="Search products..."
+              class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-button focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-white"
+            >
+            <i class="ri-search-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+          </div>
+          <a href="index.html" class="block font-medium text-gray-800 dark:text-gray-200 hover:text-primary">Home</a>
+          <a href="index.html#about" class="block font-medium text-gray-800 dark:text-gray-200 hover:text-primary">About</a>
+          <div class="relative">
+            <button id="mobileProductsBtn" class="flex items-center justify-between w-full font-medium text-gray-800 dark:text-gray-200 hover:text-primary">
+              Products <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div id="mobileProductsMenu" class="hidden pl-4 mt-2 space-y-2">
+              <a href="phones.html" class="block text-gray-700 dark:text-gray-300 hover:text-primary">Phones</a>
+              <a href="tablets.html" class="block text-gray-700 dark:text-gray-300 hover:text-primary">Tablets</a>
+              <a href="laptops.html" class="block text-gray-700 dark:text-gray-300 hover:text-primary">Laptops</a>
+              <a href="accessories.html" class="block text-gray-700 dark:text-gray-300 hover:text-primary">Accessories</a>
+              <a href="consoles.html" class="block text-gray-700 dark:text-gray-300 hover:text-primary">Consoles</a>
+            </div>
+          </div>
+          <a href="index.html#instagram" class="block font-medium text-gray-800 dark:text-gray-200 hover:text-primary">Gallery</a>
+          <a href="index.html#contact" class="block font-medium text-gray-800 dark:text-gray-200 hover:text-primary">Contact</a>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Breadcrumb -->
+    <div class="bg-gray-100 dark:bg-gray-800 py-3">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+          <a href="index.html" class="hover:text-primary">Home</a>
+          <span class="mx-2">/</span>
+          <a href="phones.html" class="hover:text-primary">Phones</a>
+          <span class="mx-2">/</span>
+          <span class="text-primary">iPhone 15 Pro Max</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product Detail Section -->
+    <section class="py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Product Image Gallery (Left) -->
+          <div class="w-full lg:w-6/12">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
+              <!-- Main Product Image -->
+              <div class="mb-4 overflow-hidden rounded-lg">
+                <img id="mainProductImage" src="https://public.readdy.ai/ai/img_res/3c6397c771ce1f6bce8c1e59b718a663.jpg" alt="iPhone 15 Pro Max" class="w-full h-auto">
+              </div>
+              
+              <!-- Thumbnails -->
+              <div class="grid grid-cols-4 gap-2">
+                <div class="gallery-thumbnail active border-2 border-transparent rounded-md overflow-hidden">
+                  <img src="https://public.readdy.ai/ai/img_res/3c6397c771ce1f6bce8c1e59b718a663.jpg" alt="iPhone 15 Pro Max - Front" class="w-full h-auto cursor-pointer" onclick="changeMainImage(this.src)">
+                </div>
+                <div class="gallery-thumbnail border-2 border-transparent rounded-md overflow-hidden">
+                  <img src="https://public.readdy.ai/ai/img_res/ea7ce5c63e5fb96c70c4a5855c765041.jpg" alt="iPhone 15 Pro Max - Back" class="w-full h-auto cursor-pointer" onclick="changeMainImage(this.src)">
+                </div>
+                <div class="gallery-thumbnail border-2 border-transparent rounded-md overflow-hidden">
+                  <img src="https://public.readdy.ai/ai/img_res/e23d6c5e4e9ad51ae4201e33049b113f.jpg" alt="iPhone 15 Pro Max - Side" class="w-full h-auto cursor-pointer" onclick="changeMainImage(this.src)">
+                </div>
+                <div class="gallery-thumbnail border-2 border-transparent rounded-md overflow-hidden">
+                  <img src="https://public.readdy.ai/ai/img_res/a572bf486881afb31aa01298c5e93631.jpg" alt="iPhone 15 Pro Max - Camera" class="w-full h-auto cursor-pointer" onclick="changeMainImage(this.src)">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product Details (Right) -->
+          <div class="w-full lg:w-6/12">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+              <!-- Product Title and Rating -->
+              <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">iPhone 15 Pro Max</h1>
+              <div class="flex items-center mb-4">
+                <div class="flex text-yellow-400 mr-2">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-half-fill"></i>
+                </div>
+                <span class="text-sm text-gray-600 dark:text-gray-400">(128 Reviews)</span>
+              </div>
+              
+              <!-- Price -->
+              <div class="mb-6">
+                <span class="text-3xl font-bold text-gray-900 dark:text-white">189,000 DZD</span>
+                <span class="text-lg text-gray-500 dark:text-gray-400 line-through ml-2">199,000 DZD</span>
+                <span class="text-sm text-green-600 ml-2">Save 10,000 DZD</span>
+              </div>
+              
+              <!-- Short Description -->
+              <p class="text-gray-700 dark:text-gray-300 mb-6">
+                iPhone 15 Pro Max with A17 Pro chip, titanium design, and advanced 48MP camera system. Experience the next level of iPhone with Always-On display and Dynamic Island.
+              </p>
+              
+              <!-- Color Selection -->
+              <div class="mb-6">
+                <h3 class="font-semibold text-gray-900 dark:text-white mb-3">Color</h3>
+                <div class="flex space-x-4">
+                  <label class="color-option">
+                    <input type="radio" name="color" class="sr-only" checked>
+                    <div class="color-circle w-8 h-8 rounded-full bg-black border-2 border-gray-300 cursor-pointer"></div>
+                  </label>
+                  <label class="color-option">
+                    <input type="radio" name="color" class="sr-only">
+                    <div class="color-circle w-8 h-8 rounded-full bg-blue-700 border-2 border-gray-300 cursor-pointer"></div>
+                  </label>
+                  <label class="color-option">
+                    <input type="radio" name="color" class="sr-only">
+                    <div class="color-circle w-8 h-8 rounded-full bg-white border-2 border-gray-300 cursor-pointer"></div>
+                  </label>
+                  <label class="color-option">
+                    <input type="radio" name="color" class="sr-only">
+                    <div class="color-circle w-8 h-8 rounded-full bg-gray-500 border-2 border-gray-300 cursor-pointer"></div>
+                  </label>
+                </div>
+              </div>
+              
+              <!-- Storage Selection -->
+              <div class="mb-6">
+                <h3 class="font-semibold text-gray-900 dark:text-white mb-3">Storage</h3>
+                <div class="flex flex-wrap gap-3">
+                  <label class="storage-option">
+                    <input type="radio" name="storage" class="sr-only">
+                    <div class="storage-box px-4 py-2 border-2 border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:border-primary">
+                      <span class="block text-center text-gray-900 dark:text-white">128GB</span>
+                      <span class="block text-center text-sm text-gray-500 dark:text-gray-400">169,000 DZD</span>
+                    </div>
+                  </label>
+                  <label class="storage-option">
+                    <input type="radio" name="storage" class="sr-only" checked>
+                    <div class="storage-box px-4 py-2 border-2 border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:border-primary">
+                      <span class="block text-center text-gray-900 dark:text-white">256GB</span>
+                      <span class="block text-center text-sm text-gray-500 dark:text-gray-400">189,000 DZD</span>
+                    </div>
+                  </label>
+                  <label class="storage-option">
+                    <input type="radio" name="storage" class="sr-only">
+                    <div class="storage-box px-4 py-2 border-2 border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:border-primary">
+                      <span class="block text-center text-gray-900 dark:text-white">512GB</span>
+                      <span class="block text-center text-sm text-gray-500 dark:text-gray-400">219,000 DZD</span>
+                    </div>
+                  </label>
+                  <label class="storage-option">
+                    <input type="radio" name="storage" class="sr-only">
+                    <div class="storage-box px-4 py-2 border-2 border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:border-primary">
+                      <span class="block text-center text-gray-900 dark:text-white">1TB</span>
+                      <span class="block text-center text-sm text-gray-500 dark:text-gray-400">249,000 DZD</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              
+              <!-- Quantity Selection -->
+              <div class="mb-6">
+                <h3 class="font-semibold text-gray-900 dark:text-white mb-3">Quantity</h3>
+                <div class="flex items-center">
+                  <button class="w-10 h-10 rounded-l-lg bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    <i class="ri-subtract-line"></i>
+                  </button>
+                  <input type="number" value="1" min="1" class="w-16 h-10 border-y border-gray-300 dark:border-gray-600 text-center text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 focus:outline-none">
+                  <button class="w-10 h-10 rounded-r-lg bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    <i class="ri-add-line"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Availability and Delivery -->
+              <div class="mb-6">
+                <div class="flex items-center mb-2">
+                  <i class="ri-checkbox-circle-line text-green-600 mr-2"></i>
+                  <span class="text-gray-700 dark:text-gray-300">In Stock - Ready to Ship</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="ri-truck-line text-primary mr-2"></i>
+                  <span class="text-gray-700 dark:text-gray-300">Free Delivery in Algiers</span>
+                </div>
+              </div>
+              
+              <!-- Action Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4">
+                <button id="add-to-cart-btn" class="add-to-cart-btn flex-1 bg-primary text-white font-medium py-3 px-6 rounded-button hover:shadow-lg transition-all flex items-center justify-center">
+                  <i class="ri-shopping-cart-line mr-2"></i>
+                  Add to Cart
+                </button>
+                <button class="flex-1 border-2 border-primary text-primary font-medium py-3 px-6 rounded-button hover:bg-primary hover:text-white transition-all flex items-center justify-center">
+                  <i class="ri-heart-line mr-2"></i>
+                  Add to Wishlist
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Product Tabs Section -->
+    <section class="py-8">
+      <div class="container mx-auto px-4">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <!-- Tabs Navigation -->
+          <div class="flex flex-wrap border-b border-gray-200 dark:border-gray-700 mb-6">
+            <button class="tab-btn active text-gray-900 dark:text-white font-semibold py-2 px-4 border-b-2 border-transparent focus:outline-none" data-tab="description">Description</button>
+            <button class="tab-btn text-gray-900 dark:text-white font-semibold py-2 px-4 border-b-2 border-transparent focus:outline-none" data-tab="specifications">Specifications</button>
+            <button class="tab-btn text-gray-900 dark:text-white font-semibold py-2 px-4 border-b-2 border-transparent focus:outline-none" data-tab="reviews">Reviews (128)</button>
+          </div>
+          
+          <!-- Tab Contents -->
+          <div class="tab-contents">
+            <!-- Description Tab -->
+            <div id="description-tab" class="tab-content active">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">iPhone 15 Pro Max</h2>
+              <div class="space-y-4 text-gray-700 dark:text-gray-300">
+                <p>The iPhone 15 Pro Max represents the pinnacle of Apple's smartphone technology, featuring a stunning 6.7-inch Super Retina XDR display with ProMotion technology. Crafted from premium titanium, it's both lighter and more durable than previous models.</p>
+                
+                <p>Powered by the revolutionary A17 Pro chip, this device delivers unprecedented performance for mobile gaming, professional photography, and everyday tasks. The chip's enhanced Neural Engine enables advanced AI capabilities, while the 6-core GPU supports hardware-accelerated ray tracing for console-quality gaming.</p>
+                
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-2">Professional Camera System</h3>
+                <p>Capture stunning photos and videos with the advanced camera system:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                  <li>48MP main camera with quad-pixel sensor</li>
+                  <li>12MP ultra wide camera with improved low-light performance</li>
+                  <li>12MP telephoto camera with 5x optical zoom</li>
+                  <li>Front-facing TrueDepth camera with autofocus</li>
+                </ul>
+                
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-2">All-day Battery Life</h3>
+                <p>The iPhone 15 Pro Max features the best battery life ever in an iPhone, offering up to:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                  <li>29 hours of video playback</li>
+                  <li>25 hours of streamed video playback</li>
+                  <li>95 hours of audio playback</li>
+                </ul>
+                
+                <p>Fast charging capability allows you to charge up to 50% in around 30 minutes with a 20W adapter or higher (sold separately).</p>
+                
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mt-6 mb-2">Key Features</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                  <li>USB-C connector with USB 3 speeds for faster transfers</li>
+                  <li>Dynamic Island for notifications and live activities</li>
+                  <li>Always-On display to glance at important information</li>
+                  <li>Emergency SOS via satellite and Crash Detection</li>
+                  <li>Advanced durability with Ceramic Shield front</li>
+                  <li>IP68 water and dust resistance</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Specifications Tab -->
+            <div id="specifications-tab" class="tab-content">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Technical Specifications</h2>
+              
+              <div class="space-y-6">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Dimensions and Weight</h3>
+                  <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <ul class="space-y-2">
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Height</span>
+                        <span class="text-gray-900 dark:text-white">159.9 mm (6.29 inches)</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Width</span>
+                        <span class="text-gray-900 dark:text-white">76.7 mm (3.02 inches)</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Depth</span>
+                        <span class="text-gray-900 dark:text-white">8.25 mm (0.32 inches)</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Weight</span>
+                        <span class="text-gray-900 dark:text-white">221 grams (7.81 ounces)</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Display</h3>
+                  <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <ul class="space-y-2">
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Type</span>
+                        <span class="text-gray-900 dark:text-white">Super Retina XDR OLED</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Size</span>
+                        <span class="text-gray-900 dark:text-white">6.7 inches</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Resolution</span>
+                        <span class="text-gray-900 dark:text-white">2796 x 1290 pixels at 460 ppi</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">ProMotion</span>
+                        <span class="text-gray-900 dark:text-white">Up to 120Hz adaptive refresh rate</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Brightness</span>
+                        <span class="text-gray-900 dark:text-white">1000 nits max typical, 1600 nits HDR, 2000 nits peak outdoor</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Chip</h3>
+                  <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <ul class="space-y-2">
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Processor</span>
+                        <span class="text-gray-900 dark:text-white">A17 Pro chip, 6-core CPU with 2 performance and 4 efficiency cores</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">GPU</span>
+                        <span class="text-gray-900 dark:text-white">6-core GPU with hardware-accelerated ray tracing</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Neural Engine</span>
+                        <span class="text-gray-900 dark:text-white">16-core Neural Engine</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Camera</h3>
+                  <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <ul class="space-y-2">
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Main Camera</span>
+                        <span class="text-gray-900 dark:text-white">48MP, ƒ/1.78 aperture, sensor-shift OIS</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Ultra Wide</span>
+                        <span class="text-gray-900 dark:text-white">12MP, ƒ/2.2 aperture, 120° field of view</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Telephoto</span>
+                        <span class="text-gray-900 dark:text-white">12MP, ƒ/2.8 aperture, 5x optical zoom, OIS</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Front Camera</span>
+                        <span class="text-gray-900 dark:text-white">12MP, ƒ/1.9 aperture, autofocus</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Battery and Power</h3>
+                  <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <ul class="space-y-2">
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Video Playback</span>
+                        <span class="text-gray-900 dark:text-white">Up to 29 hours</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Video Streaming</span>
+                        <span class="text-gray-900 dark:text-white">Up to 25 hours</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Audio Playback</span>
+                        <span class="text-gray-900 dark:text-white">Up to 95 hours</span>
+                      </li>
+                      <li class="flex justify-between">
+                        <span class="text-gray-600 dark:text-gray-400">Fast Charging</span>
+                        <span class="text-gray-900 dark:text-white">Up to 50% in 30 minutes with 20W adapter (sold separately)</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Reviews Tab -->
+            <div id="reviews-tab" class="tab-content">
+              <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Customer Reviews</h2>
+                <button class="bg-primary text-white font-medium py-2 px-4 rounded-button hover:shadow-md transition-all">
+                  Write a Review
+                </button>
+              </div>
+              
+              <!-- Overall Rating -->
+              <div class="flex flex-col md:flex-row md:items-center bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-8">
+                <div class="md:w-1/4 mb-4 md:mb-0 text-center">
+                  <div class="text-5xl font-bold text-gray-900 dark:text-white mb-2">4.8</div>
+                  <div class="flex justify-center text-yellow-400 text-xl mb-2">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                  </div>
+                  <div class="text-gray-600 dark:text-gray-400">Based on 128 reviews</div>
+                </div>
+                
+                <div class="md:w-3/4 md:pl-8">
+                  <!-- Rating Bars -->
+                  <div class="space-y-2">
+                    <div class="flex items-center">
+                      <div class="w-16 text-sm text-gray-600 dark:text-gray-400">5 stars</div>
+                      <div class="flex-1 mx-3 h-2 rounded-full bg-gray-200 dark:bg-gray-600 overflow-hidden">
+                        <div class="h-full bg-yellow-400" style="width: 85%"></div>
+                      </div>
+                      <div class="w-12 text-sm text-gray-600 dark:text-gray-400">85%</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-16 text-sm text-gray-600 dark:text-gray-400">4 stars</div>
+                      <div class="flex-1 mx-3 h-2 rounded-full bg-gray-200 dark:bg-gray-600 overflow-hidden">
+                        <div class="h-full bg-yellow-400" style="width: 10%"></div>
+                      </div>
+                      <div class="w-12 text-sm text-gray-600 dark:text-gray-400">10%</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-16 text-sm text-gray-600 dark:text-gray-400">3 stars</div>
+                      <div class="flex-1 mx-3 h-2 rounded-full bg-gray-200 dark:bg-gray-600 overflow-hidden">
+                        <div class="h-full bg-yellow-400" style="width: 3%"></div>
+                      </div>
+                      <div class="w-12 text-sm text-gray-600 dark:text-gray-400">3%</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-16 text-sm text-gray-600 dark:text-gray-400">2 stars</div>
+                      <div class="flex-1 mx-3 h-2 rounded-full bg-gray-200 dark:bg-gray-600 overflow-hidden">
+                        <div class="h-full bg-yellow-400" style="width: 1%"></div>
+                      </div>
+                      <div class="w-12 text-sm text-gray-600 dark:text-gray-400">1%</div>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-16 text-sm text-gray-600 dark:text-gray-400">1 star</div>
+                      <div class="flex-1 mx-3 h-2 rounded-full bg-gray-200 dark:bg-gray-600 overflow-hidden">
+                        <div class="h-full bg-yellow-400" style="width: 1%"></div>
+                      </div>
+                      <div class="w-12 text-sm text-gray-600 dark:text-gray-400">1%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Individual Reviews -->
+              <div class="space-y-6">
+                <!-- Review 1 -->
+                <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center">
+                      <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 text-primary font-semibold">
+                        KM
+                      </div>
+                      <div>
+                        <div class="font-semibold text-gray-900 dark:text-white">Karim M.</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Verified Purchase</div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">April 15, 2023</div>
+                  </div>
+                  
+                  <div class="flex text-yellow-400 mb-2">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                  </div>
+                  
+                  <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Best iPhone I've ever owned</h4>
+                  <p class="text-gray-700 dark:text-gray-300">
+                    The camera quality on this phone is incredible. I've been taking photos that look professional with minimal effort. The battery life is also impressive - easily lasts all day even with heavy use. The titanium frame feels premium and it's noticeably lighter than my previous Pro Max model.
+                  </p>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center">
+                      <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 text-primary font-semibold">
+                        SA
+                      </div>
+                      <div>
+                        <div class="font-semibold text-gray-900 dark:text-white">Sarah A.</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Verified Purchase</div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">March 28, 2023</div>
+                  </div>
+                  
+                  <div class="flex text-yellow-400 mb-2">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-line"></i>
+                  </div>
+                  
+                  <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Great phone but expensive</h4>
+                  <p class="text-gray-700 dark:text-gray-300">
+                    The phone itself is fantastic. The display is beautiful, everything runs smoothly, and the camera takes amazing pictures. My only complaint is the price - it's very expensive for a phone. However, if you can afford it and want the best iPhone experience, this is definitely it.
+                  </p>
+                </div>
+                
+                <!-- Review 3 -->
+                <div>
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center">
+                      <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 text-primary font-semibold">
+                        YB
+                      </div>
+                      <div>
+                        <div class="font-semibold text-gray-900 dark:text-white">Younes B.</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Verified Purchase</div>
+                      </div>
+                    </div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">March 12, 2023</div>
+                  </div>
+                  
+                  <div class="flex text-yellow-400 mb-2">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                  </div>
+                  
+                  <h4 class="font-semibold text-gray-900 dark:text-white mb-2">USB-C is a game changer</h4>
+                  <p class="text-gray-700 dark:text-gray-300">
+                    Finally, Apple has moved to USB-C! This makes a huge difference for me as I no longer need to carry multiple chargers. The transfer speeds are also much faster when backing up photos to my computer. The titanium design feels premium and the Dynamic Island is useful for tracking things like timers and music. Overall, this is a solid upgrade from my iPhone 13.
+                  </p>
+                </div>
+                
+                <!-- Load More Button -->
+                <div class="text-center mt-8">
+                  <button class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-medium py-2 px-6 rounded-button hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    Load More Reviews
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Related Products Section -->
+    <section class="py-8">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Related Products</h2>
+        
+        <!-- Swiper Slider for Related Products -->
+        <div class="swiper related-products-swiper">
+          <div class="swiper-wrapper pb-8">
+            <!-- Product Card 1 -->
+            <div class="swiper-slide">
+              <div class="product-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all">
+                <div class="relative">
+                  <img src="https://public.readdy.ai/ai/img_res/3c6397c771ce1f6bce8c1e59b718a663.jpg" alt="iPhone 15 Pro" class="w-full h-48 object-cover">
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button class="w-8 h-8 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary shadow-sm">
+                      <i class="ri-heart-line"></i>
+                    </button>
+                    <button class="w-8 h-8 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary shadow-sm">
+                      <i class="ri-eye-line"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">iPhone 15 Pro</h3>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">6.1" display, A17 Pro chip</p>
+                  <div class="flex items-center mb-2">
+                    <div class="flex text-yellow-400">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-half-fill"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 ml-1">(112)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-xl font-bold text-gray-900 dark:text-white">172,000 DZD</span>
+                    <button class="add-to-cart-btn bg-primary text-white font-medium py-2 px-4 rounded-button hover:shadow-md transition-all">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product Card 2 -->
+            <div class="swiper-slide">
+              <div class="product-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all">
+                <div class="relative">
+                  <img src="https://public.readdy.ai/ai/img_res/ea7ce5c63e5fb96c70c4a5855c765041.jpg" alt="iPhone 15" class="w-full h-48 object-cover">
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button class="w-8 h-8 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary shadow-sm">
+                      <i class="ri-heart-line"></i>
+                    </button>
+                    <button class="w-8 h-8 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary shadow-sm">
+                      <i class="ri-eye-line"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">iPhone 15</h3>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">6.1" display, A16 Bionic chip</p>
+                  <div class="flex items-center mb-2">
+                    <div class="flex text-yellow-400">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-line"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 ml-1">(98)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-xl font-bold text-gray-900 dark:text-white">129,000 DZD</span>
+                    <button class="add-to-cart-btn bg-primary text-white font-medium py-2 px-4 rounded-button hover:shadow-md transition-all">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product Card 3 -->
+            <div class="swiper-slide">
+              <div class="product-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all">
+                <div class="relative">
+                  <img src="https://public.readdy.ai/ai/img_res/e23d6c5e4e9ad51ae4201e33049b113f.jpg" alt="Samsung Galaxy S24 Ultra" class="w-full h-48 object-cover">
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button class="w-8 h-8 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary shadow-sm">
+                      <i class="ri-heart-line"></i>
+                    </button>
+                    <button class="w-8 h-8 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary shadow-sm">
+                      <i class="ri-eye-line"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Samsung Galaxy S24 Ultra</h3>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">6.8" display, Snapdragon 8 Gen 3</p>
+                  <div class="flex items-center mb-2">
+                    <div class="flex text-yellow-400">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-half-fill"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 ml-1">(154)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-xl font-bold text-gray-900 dark:text-white">224,000 DZD</span>
+                    <button class="add-to-cart-btn bg-primary text-white font-medium py-2 px-4 rounded-button hover:shadow-md transition-all">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product Card 4 -->
+            <div class="swiper-slide">
+              <div class="product-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all">
+                <div class="relative">
+                  <img src="https://public.readdy.ai/ai/img_res/a572bf486881afb31aa01298c5e93631.jpg" alt="Google Pixel 8 Pro" class="w-full h-48 object-cover">
+                  <div class="absolute top-2 right-2 flex space-x-1">
+                    <button class="w-8 h-8 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary shadow-sm">
+                      <i class="ri-heart-line"></i>
+                    </button>
+                    <button class="w-8 h-8 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary shadow-sm">
+                      <i class="ri-eye-line"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Google Pixel 8 Pro</h3>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">6.7" display, Google Tensor G3</p>
+                  <div class="flex items-center mb-2">
+                    <div class="flex text-yellow-400">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-line"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 ml-1">(87)</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-xl font-bold text-gray-900 dark:text-white">176,000 DZD</span>
+                    <button class="add-to-cart-btn bg-primary text-white font-medium py-2 px-4 rounded-button hover:shadow-md transition-all">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Navigation Buttons -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16 transition-colors">
+      <div class="container mx-auto px-4 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">About Us</h3>
+            <p class="text-gray-600 dark:text-gray-400">TontonPhone is your trusted source for the latest smartphones, tablets, and accessories.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html#about" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">About</a></li>
+              <li><a href="phones.html" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Products</a></li>
+              <li><a href="index.html#instagram" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Gallery</a></li>
+              <li><a href="index.html#contact" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Contact</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="ri-map-pin-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-600 dark:text-gray-400">123 Tech Street, Algiers, Algeria</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-phone-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-600 dark:text-gray-400">+213 555 123 456</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-mail-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-600 dark:text-gray-400">info@tontonphone.com</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">
+                <i class="ri-facebook-fill text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">
+                <i class="ri-instagram-line text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">
+                <i class="ri-twitter-fill text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">
+                <i class="ri-youtube-fill text-xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center">
+          <p class="text-gray-600 dark:text-gray-400">&copy; 2023 TontonPhone. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Login/Register Modals (as in existing site) -->
+    <!-- Include modals from existing pages -->
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    
+    <script>
+      // Initialize Swiper for Related Products
+      const relatedProductsSwiper = new Swiper('.related-products-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+        },
+      });
+      
+      // Product Gallery Image Change
+      function changeMainImage(src) {
+        const mainImage = document.getElementById('mainProductImage');
+        mainImage.src = src;
+        
+        // Update active thumbnail
+        const thumbnails = document.querySelectorAll('.gallery-thumbnail');
+        thumbnails.forEach(thumbnail => {
+          if (thumbnail.querySelector('img').src === src) {
+            thumbnail.classList.add('active');
+          } else {
+            thumbnail.classList.remove('active');
+          }
+        });
+      }
+      
+      // Tab Functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            // Remove active class from all buttons and contents
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Show corresponding tab content
+            const tabId = btn.getAttribute('data-tab');
+            document.getElementById(`${tabId}-tab`).classList.add('active');
+          });
+        });
+        
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileProductsBtn = document.getElementById('mobileProductsBtn');
+        const mobileProductsMenu = document.getElementById('mobileProductsMenu');
+        
+        if (mobileMenuBtn) {
+          mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
+        
+        if (mobileProductsBtn) {
+          mobileProductsBtn.addEventListener('click', () => {
+            mobileProductsMenu.classList.toggle('hidden');
+          });
+        }
+        
+        // Quantity Buttons
+        const minusBtn = document.querySelector('.w-10.h-10.rounded-l-lg');
+        const plusBtn = document.querySelector('.w-10.h-10.rounded-r-lg');
+        const quantityInput = document.querySelector('input[type="number"]');
+        
+        if (minusBtn && quantityInput) {
+          minusBtn.addEventListener('click', () => {
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+              quantityInput.value = currentValue - 1;
+            }
+          });
+        }
+        
+        if (plusBtn && quantityInput) {
+          plusBtn.addEventListener('click', () => {
+            const currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+          });
+        }
+      });
+    </script>
+  </body>
+</html> 

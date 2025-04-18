@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category - TontonPhone</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: '#FF0000',
+            secondary: '#FFFFFF',
+          },
+          borderRadius: {
+            'button': '8px',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Dropdown styling */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 50;
+      min-width: 10rem;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    
+    /* Loading spinner */
+    .loader {
+      border-top-color: #FF0000;
+      animation: spinner 1.5s linear infinite;
+    }
+    
+    @keyframes spinner {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .filter-option input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    
+    .filter-option span {
+      transition: all 0.2s ease;
+    }
+    
+    .filter-option input:checked + span {
+      background-color: #FF0000;
+      color: white;
+      border-color: #FF0000;
+    }
+    
+    /* Price range slider */
+    .price-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+    }
+    
+    .dark .price-slider {
+      background: #4b5563;
+    }
+    
+    .price-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #FF0000;
+      cursor: pointer;
+    }
+    
+    .price-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #FF0000;
+      cursor: pointer;
+    }
+    
+    /* Custom checkbox style */
+    .custom-checkbox {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+    .custom-checkbox input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+    .dark .checkmark {
+      background-color: #1f2937;
+      border-color: #4b5563;
+    }
+    .custom-checkbox input:checked ~ .checkmark {
+      background-color: #FF0000;
+      border-color: #FF0000;
+    }
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+    .custom-checkbox input:checked ~ .checkmark:after {
+      display: block;
+    }
+    
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      overflow: auto;
+      transition: all 0.3s ease;
+    }
+    .modal.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      max-width: 500px;
+      width: 90%;
+      transform: translateY(-20px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    .dark .modal-content {
+      background-color: #1f2937;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    .modal.show .modal-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
+  <!-- Navigation -->
+  <nav class="bg-white dark:bg-gray-800 shadow-sm">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center">
+          <span class="text-primary text-2xl font-bold">TontonPhone</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="index.html" class="py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Home</a>
+          
+          <!-- Categories Dropdown -->
+          <div class="dropdown relative">
+            <button class="py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors flex items-center">
+              Categories <i class="ri-arrow-down-s-line ml-1"></i>
+            </button>
+            <div class="dropdown-menu bg-white dark:bg-gray-800 shadow-lg rounded-md py-2 w-48">
+              <a href="phones.html" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Phones</a>
+              <a href="tablets.html" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Tablets</a>
+              <a href="laptops.html" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Laptops</a>
+              <a href="consoles.html" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Consoles</a>
+              <a href="accessories.html" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Accessories</a>
+            </div>
+          </div>
+          
+          <a href="about.html" class="py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
+          <a href="contact.html" class="py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
+
+          <!-- Search Form -->
+          <form action="search-results.html" method="get" class="relative">
+            <input type="text" name="q" placeholder="Search products..." class="w-48 pl-9 pr-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+            <button type="submit" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400">
+              <i class="ri-search-line"></i>
+            </button>
+          </form>
+        </div>
+        
+        <!-- Right Side Actions -->
+        <div class="flex items-center space-x-4">
+          <!-- Dark Mode Toggle -->
+          <button id="darkModeToggle" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+            <i class="ri-sun-line dark:hidden"></i>
+            <i class="ri-moon-line hidden dark:block"></i>
+          </button>
+          
+          <!-- Login/Account -->
+          <div class="relative">
+            <button id="loginBtn" class="py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors hidden logged-out-item">
+              <i class="ri-user-line"></i> <span class="hidden md:inline ml-1">Login</span>
+            </button>
+            
+            <button id="accountBtn" class="py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors hidden logged-in-item">
+              <i class="ri-user-line"></i> <span class="hidden md:inline ml-1">Account</span>
+            </button>
+          </div>
+          
+          <!-- Cart -->
+          <a href="cart.html" class="relative group">
+            <span class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors">
+              <i class="ri-shopping-cart-2-line"></i>
+              <span id="cart-count" class="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center rounded-full bg-primary text-white text-xs">0</span>
+            </span>
+          </a>
+          
+          <!-- Mobile Menu Toggle -->
+          <button id="mobileMenuBtn" class="md:hidden text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+            <i class="ri-menu-line text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 hidden">
+    <div class="bg-white dark:bg-gray-800 w-64 h-full overflow-y-auto">
+      <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
+        <span class="text-primary text-xl font-bold">TontonPhone</span>
+        <button id="closeMobileMenu" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+          <i class="ri-close-line text-xl"></i>
+        </button>
+      </div>
+      
+      <div class="p-4">
+        <form action="search-results.html" method="get" class="mb-4">
+          <div class="relative">
+            <input type="text" name="q" placeholder="Search products..." class="w-full pl-9 pr-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+            <button type="submit" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400">
+              <i class="ri-search-line"></i>
+            </button>
+          </div>
+        </form>
+        
+        <ul class="space-y-2">
+          <li><a href="index.html" class="block py-2 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Home</a></li>
+          <li>
+            <button class="block w-full text-left py-2 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-between" id="mobileCategoriesBtn">
+              Categories <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="pl-4 hidden" id="mobileCategoriesMenu">
+              <a href="phones.html" class="block py-2 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Phones</a>
+              <a href="tablets.html" class="block py-2 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Tablets</a>
+              <a href="laptops.html" class="block py-2 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Laptops</a>
+              <a href="consoles.html" class="block py-2 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Consoles</a>
+              <a href="accessories.html" class="block py-2 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Accessories</a>
+            </div>
+          </li>
+          <li><a href="about.html" class="block py-2 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">About</a></li>
+          <li><a href="contact.html" class="block py-2 px-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a></li>
+        </ul>
+        
+        <div class="mt-4 pt-4 border-t dark:border-gray-700">
+          <button id="mobileLoginBtn" class="block w-full py-2 px-4 bg-primary text-white rounded-button hover:bg-primary-dark transition hidden logged-out-item">Login / Register</button>
+          <a href="account.html" class="block w-full py-2 px-4 bg-primary text-white rounded-button hover:bg-primary-dark transition text-center hidden logged-in-item">My Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 md:px-6 py-8">
+    <header class="mb-8">
+      <h1 id="category-title" class="text-3xl font-bold mb-2">Products</h1>
+      <p class="text-gray-600 dark:text-gray-400">Showing all products</p>
+    </header>
+    
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Filters Sidebar -->
+      <div class="lg:w-1/4">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5">
+          <h2 class="text-xl font-semibold mb-4">Filters</h2>
+          
+          <!-- Brand Filter -->
+          <div class="mb-6">
+            <h3 class="font-medium mb-3">Brand</h3>
+            <select id="brand-filter" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+              <option value="">All Brands</option>
+              <!-- Brands will be loaded dynamically -->
+            </select>
+          </div>
+          
+          <!-- Price Filter -->
+          <div class="mb-6">
+            <h3 class="font-medium mb-3">Price Range</h3>
+            <div class="flex items-center mb-2">
+              <span class="text-gray-600 dark:text-gray-400">0 DZD</span>
+              <span class="flex-grow mx-3"></span>
+              <span id="price-display" class="font-medium text-primary">100,000 DZD</span>
+            </div>
+            <input type="range" id="price-filter" min="0" max="250000" value="250000" class="w-full accent-primary price-slider">
+          </div>
+          
+          <!-- Storage Filter (for phones, tablets, laptops) -->
+          <div id="storage-filter-section" class="mb-6">
+            <h3 class="font-medium mb-3">Storage</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="filter-option">
+                <input type="checkbox" name="storage" value="128GB">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">128GB</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="storage" value="256GB">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">256GB</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="storage" value="512GB">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">512GB</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="storage" value="1TB">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">1TB</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- RAM Filter (for phones, tablets, laptops) -->
+          <div id="ram-filter-section" class="mb-6">
+            <h3 class="font-medium mb-3">RAM</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="filter-option">
+                <input type="checkbox" name="ram" value="4GB">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">4GB</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="ram" value="8GB">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">8GB</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="ram" value="16GB">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">16GB</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="ram" value="32GB">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">32GB</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- OS Filter (for phones and tablets) -->
+          <div id="os-filter-section" class="mb-6">
+            <h3 class="font-medium mb-3">Operating System</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="filter-option">
+                <input type="checkbox" name="os" value="Android">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">Android</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="os" value="iOS">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">iOS</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="os" value="Windows">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">Windows</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="os" value="ChromeOS">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">ChromeOS</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Processor Filter (for laptops) -->
+          <div id="processor-filter-section" class="mb-6">
+            <h3 class="font-medium mb-3">Processor</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="filter-option">
+                <input type="checkbox" name="processor" value="Intel">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">Intel</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="processor" value="AMD">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">AMD</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="processor" value="Apple">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">Apple</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="processor" value="Qualcomm">
+                <span class="block py-2 px-3 text-sm border border-gray-200 dark:border-gray-600 rounded-md text-center cursor-pointer hover:border-primary">Qualcomm</span>
+              </label>
+            </div>
+          </div>
+          
+          <!-- Reset Filters -->
+          <button id="reset-filters" class="w-full py-2 px-4 border border-primary text-primary hover:bg-primary hover:text-white rounded-button transition-colors">
+            Reset Filters
+          </button>
+        </div>
+      </div>
+      
+      <!-- Products Grid -->
+      <div class="lg:w-3/4 products-grid">
+        <!-- Products Loading -->
+        <div id="products-loading" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
+          <div class="loader mx-auto h-12 w-12 border-4 border-gray-200 dark:border-gray-700 rounded-full"></div>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">Loading products...</p>
+        </div>
+        
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          <!-- Products will be loaded dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-800 mt-12 pt-12 pb-8 border-t dark:border-gray-700">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Company Info -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">TontonPhone</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Your trusted source for the latest tech products at competitive prices.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-primary">
+              <i class="ri-facebook-fill text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-primary">
+              <i class="ri-twitter-fill text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-primary">
+              <i class="ri-instagram-fill text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Home</a></li>
+            <li><a href="about.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">About Us</a></li>
+            <li><a href="contact.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Contact</a></li>
+            <li><a href="privacy.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Privacy Policy</a></li>
+            <li><a href="terms.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        
+        <!-- Categories -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Categories</h3>
+          <ul class="space-y-2">
+            <li><a href="phones.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Phones</a></li>
+            <li><a href="tablets.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Tablets</a></li>
+            <li><a href="laptops.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Laptops</a></li>
+            <li><a href="consoles.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Consoles</a></li>
+            <li><a href="accessories.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Accessories</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="ri-map-pin-line mt-1 mr-3 text-primary"></i>
+              <span class="text-gray-600 dark:text-gray-400">123 Tech Street, Algiers, Algeria</span>
+            </li>
+            <li class="flex items-start">
+              <i class="ri-phone-line mt-1 mr-3 text-primary"></i>
+              <span class="text-gray-600 dark:text-gray-400">+213 123 456 789</span>
+            </li>
+            <li class="flex items-start">
+              <i class="ri-mail-line mt-1 mr-3 text-primary"></i>
+              <span class="text-gray-600 dark:text-gray-400">info@tontonphone.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t dark:border-gray-700 mt-8 pt-8 text-center">
+        <p class="text-gray-600 dark:text-gray-400">&copy; 2023 TontonPhone. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full mx-4 p-6">
+      <div class="flex justify-between items-center pb-3 border-b dark:border-gray-700">
+        <h3 class="text-xl font-bold" id="modalTitle">Login</h3>
+        <button id="closeLoginModal" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 close-modal">
+          <i class="ri-close-line text-xl"></i>
+        </button>
+      </div>
+      
+      <div class="p-4">
+        <!-- Login Form -->
+        <form id="loginForm" class="space-y-4">
+          <div>
+            <label for="loginEmail" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+            <input type="email" id="loginEmail" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" required>
+          </div>
+          <div>
+            <label for="loginPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+            <input type="password" id="loginPassword" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" required>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <span class="custom-checkbox">
+                <input type="checkbox" id="remember" class="h-4 w-4">
+                <span class="checkmark"></span>
+              </span>
+              <label for="remember" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">Remember me</label>
+            </div>
+            <a href="#" class="text-sm text-primary hover:underline">Forgot password?</a>
+          </div>
+          <button type="submit" class="w-full py-2 px-4 bg-primary text-white rounded-button hover:bg-opacity-90 transition">Login</button>
+        </form>
+        
+        <!-- Register Form -->
+        <form id="registerForm" class="space-y-4 hidden">
+          <div>
+            <label for="registerName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
+            <input type="text" id="registerName" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" required>
+          </div>
+          <div>
+            <label for="registerEmail" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+            <input type="email" id="registerEmail" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" required>
+          </div>
+          <div>
+            <label for="registerPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+            <input type="password" id="registerPassword" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" required>
+          </div>
+          <div>
+            <label for="confirmPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Confirm Password</label>
+            <input type="password" id="confirmPassword" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white" required>
+          </div>
+          <div class="flex items-center">
+            <span class="custom-checkbox">
+              <input type="checkbox" id="acceptTerms" required>
+              <span class="checkmark"></span>
+            </span>
+            <label for="acceptTerms" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">I accept the <a href="#" class="text-primary hover:underline">Terms and Conditions</a></label>
+          </div>
+          <button type="submit" class="w-full py-2 px-4 bg-primary text-white rounded-button hover:bg-opacity-90 transition">Register</button>
+        </form>
+        
+        <div class="mt-4 text-center">
+          <button id="toggleFormBtn" class="text-primary hover:underline text-sm">Don't have an account? Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/product.js"></script>
+  <script src="js/search.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize search functionality
+      if (typeof initSearch === 'function') {
+        initSearch();
+      }
+      
+      // Dark Mode Toggle
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      darkModeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'enabled' : 'disabled');
+      });
+      
+      // Check dark mode preference
+      if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark');
+      }
+      
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const closeMobileMenu = document.getElementById('closeMobileMenu');
+      
+      mobileMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.remove('hidden');
+      });
+      
+      closeMobileMenu.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+      });
+      
+      // Mobile Categories Toggle
+      const mobileCategoriesBtn = document.getElementById('mobileCategoriesBtn');
+      const mobileCategoriesMenu = document.getElementById('mobileCategoriesMenu');
+      
+      mobileCategoriesBtn.addEventListener('click', function() {
+        mobileCategoriesMenu.classList.toggle('hidden');
+      });
+      
+      // Login Modal
+      const loginBtn = document.getElementById('loginBtn');
+      const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+      const loginModal = document.getElementById('loginModal');
+      const closeLoginModal = document.getElementById('closeLoginModal');
+      
+      function openLoginModal() {
+        loginModal.classList.remove('hidden');
+      }
+      
+      function closeLoginModalFunc() {
+        loginModal.classList.add('hidden');
+      }
+      
+      loginBtn && loginBtn.addEventListener('click', openLoginModal);
+      mobileLoginBtn && mobileLoginBtn.addEventListener('click', openLoginModal);
+      closeLoginModal && closeLoginModal.addEventListener('click', closeLoginModalFunc);
+      
+      // Toggle between login and register forms
+      const toggleFormBtn = document.getElementById('toggleFormBtn');
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+      const modalTitle = document.getElementById('modalTitle');
+      
+      toggleFormBtn && toggleFormBtn.addEventListener('click', function() {
+        loginForm.classList.toggle('hidden');
+        registerForm.classList.toggle('hidden');
+        
+        if (loginForm.classList.contains('hidden')) {
+          toggleFormBtn.textContent = 'Already have an account? Login';
+          modalTitle.textContent = 'Register';
+        } else {
+          toggleFormBtn.textContent = 'Don\'t have an account? Register';
+          modalTitle.textContent = 'Login';
+        }
+      });
+      
+      // Handle user authentication status
+      checkAuthStatus();
+      
+      // Reset filters button
+      const resetFiltersBtn = document.getElementById('reset-filters');
+      if (resetFiltersBtn) {
+        resetFiltersBtn.addEventListener('click', function() {
+          // Reset brand filter
+          const brandFilter = document.getElementById('brand-filter');
+          if (brandFilter) brandFilter.value = '';
+          
+          // Reset price filter
+          const priceFilter = document.getElementById('price-filter');
+          if (priceFilter) {
+            const maxPrice = parseInt(priceFilter.max);
+            priceFilter.value = maxPrice;
+            const priceDisplay = document.getElementById('price-display');
+            if (priceDisplay) priceDisplay.textContent = maxPrice.toLocaleString() + ' DZD';
+          }
+          
+          // Reset checkboxes
+          document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.checked = false;
+            const span = checkbox.nextElementSibling;
+            if (span) {
+              span.classList.remove('bg-primary', 'text-white', 'border-primary');
+            }
+          });
+          
+          // Apply filters
+          if (typeof applyFilters === 'function') {
+            applyFilters();
+          }
+        });
+      }
+      
+      // Set page category title
+      setPageCategory();
+    });
+    
+    // Set the page category based on the URL
+    function setPageCategory() {
+      const path = window.location.pathname;
+      const categoryTitle = document.getElementById('category-title');
+      
+      if (!categoryTitle) return;
+      
+      if (path.includes('phones.html')) {
+        categoryTitle.textContent = 'Smartphones';
+        document.title = 'Smartphones - TontonPhone';
+      } else if (path.includes('tablets.html')) {
+        categoryTitle.textContent = 'Tablets';
+        document.title = 'Tablets - TontonPhone';
+      } else if (path.includes('laptops.html')) {
+        categoryTitle.textContent = 'Laptops';
+        document.title = 'Laptops - TontonPhone';
+      } else if (path.includes('consoles.html')) {
+        categoryTitle.textContent = 'Gaming Consoles';
+        document.title = 'Gaming Consoles - TontonPhone';
+      } else if (path.includes('accessories.html')) {
+        categoryTitle.textContent = 'Accessories';
+        document.title = 'Accessories - TontonPhone';
+      }
+    }
+  </script>
+</body>
+</html> 
