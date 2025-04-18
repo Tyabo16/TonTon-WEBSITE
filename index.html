@@ -1378,7 +1378,7 @@
       function initializeMobileMenu() {
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuCloseBtn = document.getElementById('mobileMenuCloseBtn');
+        const mobileMenuCloseBtn = document.getElementById('closeMobileMenu');
         const categoriesToggle = document.getElementById('categoriesToggle');
         const categoriesSubmenu = document.getElementById('categoriesSubmenu');
         
@@ -1405,51 +1405,94 @@
               if (categoriesSubmenu.classList.contains('hidden')) {
                 arrow.classList.remove('ri-arrow-up-s-line');
                 arrow.classList.add('ri-arrow-down-s-line');
-          } else {
+              } else {
                 arrow.classList.remove('ri-arrow-down-s-line');
                 arrow.classList.add('ri-arrow-up-s-line');
-          }
-        }
-      });
+              }
+            }
+          });
         }
       }
     </script>
 
     <!-- Mobile menu content -->
-    <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-      <div class="bg-white dark:bg-gray-900 h-full w-4/5 max-w-sm overflow-y-auto transform transition-transform duration-300 translate-x-0">
-        <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
-          <div class="text-xl font-bold text-gray-800 dark:text-white">Menu</div>
-          <button id="closeMobileMenu" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-            <i class="ri-close-line text-2xl"></i>
-      </button>
+    <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col p-4 md:hidden" style="display: none">
+      <div class="flex items-center justify-between mb-8">
+        <a href="index.html" class="flex items-center">
+          <h1 class="text-2xl font-bold text-primary">TontonPhone</h1>
+        </a>
+        <button 
+          id="closeMobileMenu"
+          class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
+        >
+          <i class="ri-close-line text-xl"></i>
+        </button>
       </div>
-        <nav class="p-4">
-          <ul class="space-y-3">
-            <li>
-              <a href="index.html" class="mobile-menu-item">Home</a>
-            </li>
-            <li class="relative mobile-submenu-container">
-              <div class="flex items-center justify-between mobile-menu-item mobile-menu-trigger">
-                <span>Products</span>
-                <i class="ri-arrow-right-s-line transition-transform mobile-submenu-arrow"></i>
-              </div>
-              <ul class="mobile-submenu pl-4 mt-2 space-y-2 hidden">
-                <li><a href="phones.html" class="mobile-submenu-item">Phones</a></li>
-                <li><a href="tablets.html" class="mobile-submenu-item">Tablets</a></li>
-                <li><a href="laptops.html" class="mobile-submenu-item">Laptops</a></li>
-                <li><a href="consoles.html" class="mobile-submenu-item">Consoles</a></li>
-                <li><a href="accessories.html" class="mobile-submenu-item">Accessories</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#about" class="mobile-menu-item">About Us</a>
-            </li>
-            <li>
-              <a href="#contact" class="mobile-menu-item">Contact</a>
-            </li>
-          </ul>
-        </nav>
+      <div class="flex-1 overflow-y-auto">
+        <ul class="space-y-4 mb-8">
+          <li>
+            <a href="index.html" class="block py-2 text-lg font-medium text-primary">Home</a>
+          </li>
+          <li class="relative">
+            <div class="flex items-center justify-between cursor-pointer py-2 text-lg font-medium text-gray-900 dark:text-white" id="categoriesToggle" aria-expanded="false" aria-controls="categoriesSubmenu">
+              <span>Categories</span>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <ul class="pl-4 mt-2 space-y-2 hidden" id="categoriesSubmenu" aria-labelledby="categoriesToggle">
+              <li>
+                <a href="phones.html" class="block py-2 text-base font-medium text-gray-700 dark:text-gray-300">Phones</a>
+              </li>
+              <li>
+                <a href="tablets.html" class="block py-2 text-base font-medium text-gray-700 dark:text-gray-300">Tablets</a>
+              </li>
+              <li>
+                <a href="laptops.html" class="block py-2 text-base font-medium text-gray-700 dark:text-gray-300">Laptops</a>
+              </li>
+              <li>
+                <a href="consoles.html" class="block py-2 text-base font-medium text-gray-700 dark:text-gray-300">Consoles</a>
+              </li>
+              <li>
+                <a href="accessories.html" class="block py-2 text-base font-medium text-gray-700 dark:text-gray-300">Accessories</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#about" class="block py-2 text-lg font-medium text-gray-900 dark:text-white">About Us</a>
+          </li>
+          <li>
+            <a href="#contact" class="block py-2 text-lg font-medium text-gray-900 dark:text-white">Contact</a>
+          </li>
+        </ul>
+        <div class="space-y-4">
+          <a
+            href="search-results.html"
+            class="flex items-center py-2 text-lg font-medium text-gray-900 dark:text-white"
+          >
+            <i class="ri-search-line mr-3"></i>
+            Search
+          </a>
+          <a
+            href="cart.html"
+            class="flex items-center py-2 text-lg font-medium text-gray-900 dark:text-white"
+          >
+            <i class="ri-shopping-cart-line mr-3"></i>
+            Cart
+          </a>
+          <a
+            href="wishlist.html"
+            class="flex items-center py-2 text-lg font-medium text-gray-900 dark:text-white"
+          >
+            <i class="ri-heart-line mr-3"></i>
+            Wishlist
+          </a>
+          <a
+            href="account.html"
+            class="flex items-center py-2 text-lg font-medium text-gray-900 dark:text-white"
+          >
+            <i class="ri-user-line mr-3"></i>
+            Account
+          </a>
+        </div>
       </div>
     </div>
   </body>
