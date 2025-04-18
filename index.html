@@ -69,6 +69,27 @@
       -webkit-appearance: none;
       margin: 0;
       }
+      
+      /* Mobile optimizations */
+      @media (max-width: 768px) {
+        .container {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+        #home {
+          padding-top: 1rem;
+          padding-bottom: 2rem;
+        }
+        #home h1 {
+          font-size: 2.25rem;
+          line-height: 1.2;
+        }
+        .mobile-menu-link {
+          padding: 0.75rem 0;
+          border-bottom: 1px solid rgba(229, 231, 235, 0.2);
+        }
+      }
+      
       .custom-checkbox {
       position: relative;
       display: inline-block;
@@ -461,13 +482,13 @@
           <!-- Login/Register Buttons -->
           <button 
             id="loginBtn" 
-            class="text-gray-800 dark:text-gray-200 hover:text-primary font-medium transition-colors"
+            class="hidden md:block text-gray-800 dark:text-gray-200 hover:text-primary font-medium transition-colors"
           >
             Login
           </button>
           <button 
             id="registerBtn" 
-            class="bg-primary text-white font-medium py-2 px-4 rounded-button hover:shadow-md transition-all"
+            class="hidden md:block bg-primary text-white font-medium py-2 px-4 rounded-button hover:shadow-md transition-all"
           >
             Register
           </button>
@@ -506,13 +527,7 @@
             <i class="ri-menu-line text-xl" aria-hidden="true"></i>
           </button>
           
-          <div class="md:hidden flex items-center">
-            <button class="text-gray-800 dark:text-gray-200 hover:text-primary focus:outline-none">
-              <div class="w-6 h-6 flex items-center justify-center">
-                <i class="ri-menu-line ri-lg"></i>
-              </div>
-            </button>
-          </div>
+          <!-- Remove duplicate mobile menu button -->
         </div>
       </div>
     </nav>
@@ -1429,6 +1444,24 @@
         </button>
       </div>
       <div class="flex-1 overflow-y-auto">
+        <!-- Login/Register options for mobile -->
+        <div class="flex space-x-2 mb-6">
+          <button 
+            id="loginBtnMobile" 
+            class="flex-1 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-medium py-2 px-4 rounded-button transition-all"
+            onclick="document.getElementById('loginBtn').click();"
+          >
+            Login
+          </button>
+          <button 
+            id="registerBtnMobile" 
+            class="flex-1 bg-primary text-white font-medium py-2 px-4 rounded-button hover:shadow-md transition-all"
+            onclick="document.getElementById('registerBtn').click();"
+          >
+            Register
+          </button>
+        </div>
+        
         <ul class="space-y-4 mb-8">
           <li>
             <a href="index.html" class="block py-2 text-lg font-medium text-primary">Home</a>
